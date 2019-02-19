@@ -1,0 +1,23 @@
+{
+  "name": "js-util",
+  "version": "1.0.0",
+  "description": "A handy set of JS functions useful for server or client",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatlard1993/js-util.git"
+  },
+  "author": "fatlard1993",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fatlard1993/js-util/issues"
+  },
+  "homepage": "https://github.com/fatlard1993/js-util#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.14.1"
+  }
+}
