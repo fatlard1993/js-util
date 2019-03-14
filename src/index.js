@@ -1,32 +1,32 @@
 var util = {
-  stringToColor: function stringToColor(str, opts){
+	stringToColor: function stringToColor(str, opts){
 		var h, s, l;
-    opts = opts || {};
-    opts.hue = opts.hue || [0, 360];
-    opts.sat = opts.sat || [75, 100];
-    opts.lit = opts.lit || [40, 60];
+		opts = opts || {};
+		opts.hue = opts.hue || [0, 360];
+		opts.sat = opts.sat || [75, 100];
+		opts.lit = opts.lit || [40, 60];
 
-    var range = function(hash, min, max){
+		var range = function(hash, min, max){
 			var diff = max - min;
 			var x = ((hash % diff) + diff) % diff;
 
 			return x + min;
-    };
+		};
 
 		var hash = 0;
 
 		if (str.length === 0) return hash;
 
-    for (var i = 0; i < str.length; i++) {
+		for (var i = 0; i < str.length; i++) {
 			hash = str.charCodeAt(i) + ((hash << 5) - hash);
 			hash &= hash;
-    }
+		}
 
-    h = range(hash, opts.hue[0], opts.hue[1]);
-    s = range(hash, opts.sat[0], opts.sat[1]);
-    l = range(hash, opts.lit[0], opts.lit[1]);
+		h = range(hash, opts.hue[0], opts.hue[1]);
+		s = range(hash, opts.sat[0], opts.sat[1]);
+		l = range(hash, opts.lit[0], opts.lit[1]);
 
-    return 'hsl('+ h +', '+ s +'%, '+ l +'%)';
+		return 'hsl('+ h +', '+ s +'%, '+ l +'%)';
 	},
 	getOppositeHue: function getOppositeHue(base){
 		return 'hsl('+ ((parseInt(base.slice(4, base.length).replace(/,.*/, '')) + 180) % 360) +', 100%, 30%)';
@@ -96,7 +96,7 @@ var util = {
 	padNumber: function padNumber(number, length){
 		var string = '000000000'+ number;
 
-    return string.substr(string.length - length);
+		return string.substr(string.length - length);
 	},
 	clone: function clone(it){
 		if(typeof it !== 'object') return;// console.error('common', 'util.clone only accepts Objects and Arrays');
@@ -163,9 +163,9 @@ var util = {
 	},
 	uniqueArr: function uniqueArr(arr){
 		var seen = {}, out = [];
-    var len = arr.length, x = 0, y = 0;
+		var len = arr.length, x = 0, y = 0;
 
-    for(; x < len; ++x){
+		for(; x < len; ++x){
 			var item = arr[x];
 
 			if(seen[item]) continue;
@@ -175,7 +175,7 @@ var util = {
 			++y;
 		}
 
-    return out;
+		return out;
 	},
 	commonArr: function commonArr(){
 		var arrays = Array.prototype.sort.call(arguments);
@@ -338,8 +338,8 @@ var util = {
 		return parseInt(util.rand(min, max));
 	},
 	seedRand: function (seed, min, max){
-    var x = Math.sin(seed++) * 10000;
-    return parseInt((x - Math.floor(x)) * (max - min) + min);
+		var x = Math.sin(seed++) * 10000;
+		return parseInt((x - Math.floor(x)) * (max - min) + min);
 	},
 	randTF: function randTF(){
 		return !!(Math.random() < 0.5 ? 1 : 0);
