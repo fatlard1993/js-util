@@ -17,8 +17,8 @@ var util = {
 
 		if (str.length === 0) return hash;
 
-		for (var i = 0; i < str.length; i++) {
-			hash = str.charCodeAt(i) + ((hash << 5) - hash);
+		for(var x = 0; x < str.length; ++x){
+			hash = str.charCodeAt(x) + ((hash << 5) - hash);
 			hash &= hash;
 		}
 
@@ -46,7 +46,7 @@ var util = {
 			var month = date.getMonth(), day = date.getDate();
 			var dayOfYear = dayCount[month] + day;
 
-			if(month > 1 && util.isLeapYear(date)) dayOfYear++;
+			if(month > 1 && util.isLeapYear(date)) ++dayOfYear;
 
 			return dayOfYear;
 		},
@@ -326,7 +326,7 @@ var util = {
 				ranges[range].push(arr[x]);
 			}
 
-			if(arr[x + 1] - arr[x] !== 1 && x < arrLength - 1) range++;
+			if(arr[x + 1] - arr[x] !== 1 && x < arrLength - 1) ++range;
 		}
 
 		return ranges;
@@ -337,8 +337,9 @@ var util = {
 	randInt: function randInt(min, max){
 		return parseInt(util.rand(min, max));
 	},
-	seedRand: function (seed, min, max){
-		var x = Math.sin(seed++) * 10000;
+	seedRand: function(seed, min, max){
+		var x = Math.sin(++seed) * 10000;
+
 		return parseInt((x - Math.floor(x)) * (max - min) + min);
 	},
 	randTF: function randTF(){
@@ -375,7 +376,7 @@ var util = {
 
 		var itemNames = Object.keys(items);
 
-		for(var x = 0; x < itemNames.length; x++){
+		for(var x = 0; x < itemNames.length; ++x){
 			sum += items[itemNames[x]];
 
 			if(rand <= sum) return itemNames[x];
