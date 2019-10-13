@@ -71,12 +71,12 @@ var util = {
 		'%Y': function(date){ return date.getFullYear(); },
 		'%z': function(date){ return date.toString().match(/\(([A-Za-z\s].*)\)/)[1]; },
 	},
-	parseDateString: function parseDateString(format){
+	parseDateString: function parseDateString(format, date){
 		if(typeof format !== 'string') return format;
 
 		var matches = util.uniqueArr(format.match(/%./g));
 		var x = 0, count = matches.length, replacement;
-		var date = new Date();
+		date = date || new Date();
 
 		for(; x < count; ++x){
 			replacement = util.dateStringReplacements[matches[x]];
