@@ -1,5 +1,7 @@
 var util = {
 	stringToColor: function stringToColor(str, opts){
+		if(!str) return util.randColor();
+
 		var h, s, l;
 		opts = opts || {};
 		opts.hue = opts.hue || [0, 360];
