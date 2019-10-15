@@ -95,6 +95,14 @@ var util = {
 
 		return ((year % 100) !== 0 || (year % 400) === 0);
 	},
+	toCoLeDate: function(date){
+		date = new Date(date);
+
+		return (date.getTime() / 24 / 3600 / 1000) + 25568;
+	},
+	fromCoLeDate: function(cole){
+		return new Date((cole - 25568) * 24 * 3600 * 1000);
+	},
 	padNumber: function padNumber(number, length){
 		var string = '000000000'+ number;
 
