@@ -33,6 +33,13 @@ var util = {
 	getOppositeHue: function getOppositeHue(base){
 		return 'hsl('+ ((parseInt(base.slice(4, base.length).replace(/,.*/, '')) + 180) % 360) +', 100%, 30%)';
 	},
+	formatBytes: function(bytes, decimals = 2){
+		if(!bytes) return '0 Bytes';
+
+		var kByte = 1024, sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'], sizeIndex = Math.floor(Math.log(bytes) / Math.log(kByte));
+
+		return `${parseFloat((bytes / Math.pow(kByte, sizeIndex)).toFixed(decimals))} ${sizes[sizeIndex]}`;
+	},
 	dateStringReplacements: {
 		'%%': function(){ return '%'; },
 		'%a': function(date){ return date.toLocaleString('en-us', { weekday: 'short' }); },
