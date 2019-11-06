@@ -34,7 +34,7 @@ var util = {
 		return 'hsl('+ ((parseInt(base.slice(4, base.length).replace(/,.*/, '')) + 180) % 360) +', 100%, 30%)';
 	},
 	formatBytes: function(bytes, decimals = 2){
-		if(!bytes) return '0 Bytes';
+		if(!bytes || bytes === '0') return '0 Bytes';
 
 		var kByte = 1024, sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'], sizeIndex = Math.floor(Math.log(bytes) / Math.log(kByte));
 
