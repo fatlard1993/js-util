@@ -439,7 +439,7 @@ var util = {
 		return Object.keys(obj).map(function(key){ return obj[key]; });
 	},
 	toFixed: function(num, decimalPlaces, outputAsNumber){// no rounding, yay!
-		var floatRegex = new RegExp('(^[0-9]*)\\.?([0-9]{0,' + (decimalPlaces - 1|| -1) + '}[1-9]{1}(?=.+?0*$))?');
+		var floatRegex = new RegExp('(^-?[0-9]*)\\.?([0-9]{0,' + (decimalPlaces - 1|| -1) + '}[1-9]{1}(?=.+?0*$))?');
 		var output = String(num).match(floatRegex);
 		output = output[1] + (output[2] ? '.'+ output[2] : '');
 
