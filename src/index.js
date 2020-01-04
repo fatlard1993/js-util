@@ -423,14 +423,14 @@ var util = {
 
 		currentFunction(next);
 	},
-	capitalize: function capitalize(str, recursive, split){
-		for(var x = 0, words = str.split(typeof split === 'undefined' ? ' ' : split), wordCount = words.length, word; x < (recursive ? wordCount : 1); ++x){
+	capitalize: function capitalize(str, recursive, split = ' '){
+		for(var x = 0, words = str.split(split), wordCount = words.length, word; x < (recursive ? wordCount : 1); ++x){
 			word = words[x];
 
 			words[x] = word.charAt(0).toUpperCase() + word.slice(1);
 		}
 
-		return words.join(' ');
+		return words.join(split);
 	},
 	fromCamelCase: function fromCamelCase(string, joiner){
 		return string.split(/(?=[A-Z])/).join(joiner || ' ');
