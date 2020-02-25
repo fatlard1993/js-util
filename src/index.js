@@ -122,6 +122,12 @@ var util = {
 
 		return Object.assign({}, it);
 	},
+	sumArr: function(arr){
+		return arr.reduce((a, b) => { return  a + b; }, 0);
+	},
+	averageArr: function(arr){
+		return util.sumArr(arr) / arr.length;
+	},
 	cleanArr: function cleanArr(arr, items){
 		for(var x = 0, itemCount = arr.length, newArr = [], item; x < itemCount; ++x){
 			item = arr[x];
