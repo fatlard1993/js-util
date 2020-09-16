@@ -429,6 +429,12 @@ var util = {
 
 		currentFunction(next);
 	},
+	forEachInOrder: function(arr, func, currentItem){
+		if(!currentItem && !arr.length) return;
+		if(!currentItem) currentItem = arr.shift();
+
+		func(currentItem, arr.length < 1 ? undefined : () => { util.forEachInOrder(arr, func, arr.shift()); });
+	},
 	capitalize: function capitalize(str, recursive, split = ' '){
 		for(var x = 0, words = str.split(split), wordCount = words.length, word; x < (recursive ? wordCount : 1); ++x){
 			word = words[x];
