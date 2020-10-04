@@ -445,7 +445,7 @@ var util = {
 		return words.join(split);
 	},
 	fromCamelCase: function fromCamelCase(string, joiner = ' '){
-		return string.split(/(?=[A-Z])/).join(joiner);
+		return string.split(/(?=[A-Z][a-z])/).join(joiner);
 	},
 	toCamelCase: function(string, upperCamelCase = false, splitter = ' '){
 		return string.split(splitter).map((item, index) => { return ((index === 0 && upperCamelCase) || index > 0) ? util.capitalize(item) : item; }).join('');
