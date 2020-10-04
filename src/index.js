@@ -444,11 +444,11 @@ var util = {
 
 		return words.join(split);
 	},
-	fromCamelCase: function fromCamelCase(string, joiner){
-		return string.split(/(?=[A-Z])/).join(joiner || ' ');
+	fromCamelCase: function fromCamelCase(string, joiner = ' '){
+		return string.split(/(?=[A-Z])/).join(joiner);
 	},
-	toCamelCase: function(string, upperCamelCase = false){
-		return string.split(' ').map((item, index) => { return ((index === 0 && upperCamelCase) || index > 0) ? util.capitalize(item) : item; }).join('');
+	toCamelCase: function(string, upperCamelCase = false, splitter = ' '){
+		return string.split(splitter).map((item, index) => { return ((index === 0 && upperCamelCase) || index > 0) ? util.capitalize(item) : item; }).join('');
 	},
 	objectValues: function objectValues(obj){
 		return Object.keys(obj).map(function(key){ return obj[key]; });
