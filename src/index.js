@@ -462,9 +462,4 @@ var util = {
 	}
 };
 
-try{
-	module.exports = util;
-}
-catch(e){
-// console.error(e);
-}
+if(typeof module === 'object') module.exports = util;
