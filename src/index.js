@@ -122,6 +122,9 @@ var util = {
 
 		return Object.assign({}, it);
 	},
+	arrToTruthTable: function(arr){
+		return Object.fromEntries(arr.map((item) => { return [item, 1]; }));
+	},
 	sumArr: function(arr){
 		return arr.reduce((a, b) => { return  a + b; }, 0);
 	},
