@@ -1,6 +1,6 @@
 {
 	"name": "js-util",
-	"version": "2.10.0",
+	"version": "2.10.1",
 	"description": "A handy set of JS functions useful for server or client",
 	"main": "src/index.js",
 	"scripts": {
