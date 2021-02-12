@@ -265,7 +265,7 @@ var util = {
 		return arr.sort(sortAlphaNum);
 	},
 	arrIsNegative: function arrIsNegative(arr){
-		return arr.every(function(element, index, array){ return element < 0; });
+		return arr.every((item) => { return item < 0; });
 	},
 	shuffleArr: function(array){
 		var currentIndex = array.length, temporaryValue, randomIndex;
