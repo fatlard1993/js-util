@@ -1,15 +1,15 @@
 # js-util
 
-A js ESM library of common useful for nodeJS and browser
+A js library module of common useful for nodeJS and browser
 
 ### nodeJS
 
 ```
-const { Log } = require('log');
+const { jsUtil } = require('js-util');
 ```
 
 ### browser
 
 ```
-import { Log } from 'log';
+import { jsUtil } from 'js-util';
 ```
