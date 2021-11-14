@@ -1,6 +1,6 @@
 {
 	"name": "js-util",
-	"version": "2.10.1",
+	"version": "3.0.0",
 	"main": "js-util.js",
 	"description": "A handy set of JS functions useful for server or client",
 	"author": "justfatlard",
